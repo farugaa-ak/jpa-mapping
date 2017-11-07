@@ -1,4 +1,4 @@
-package com.example.hibernatejpa.model;
+package com.example.hibernatejpa.model.onetomany;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;

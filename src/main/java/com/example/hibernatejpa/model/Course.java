@@ -6,9 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * Created by Marcin on 2016-10-23.
- */
+
 @Entity
 public class Course {
 

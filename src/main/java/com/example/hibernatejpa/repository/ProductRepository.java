@@ -1,6 +1,6 @@
 package com.example.hibernatejpa.repository;
 
-import com.example.hibernatejpa.model.Product;
+import com.example.hibernatejpa.model.onetomany.Product;
 import org.springframework.data.repository.CrudRepository;
 
 

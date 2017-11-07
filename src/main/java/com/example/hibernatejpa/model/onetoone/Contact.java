@@ -1,4 +1,4 @@
-package com.example.hibernatejpa.model;
+package com.example.hibernatejpa.model.onetoone;
 
 
 import javax.persistence.Embeddable;

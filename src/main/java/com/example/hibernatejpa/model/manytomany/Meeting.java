@@ -1,10 +1,8 @@
-package com.example.hibernatejpa.model;
+package com.example.hibernatejpa.model.manytomany;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import java.util.Date;
 import java.util.HashSet;
@@ -21,7 +19,7 @@ public class Meeting {
 
     private Date meetingDate;
 
-    @ManyToMany(mappedBy="meetings")
+    @ManyToMany(mappedBy = "meetings")
     private Set<Employee> employees = new HashSet<>();
 
     public Meeting(String subject) {
@@ -62,5 +60,18 @@ public class Meeting {
 
     public void setEmployees(Set<Employee> employees) {
         this.employees = employees;
+    }
+
+    public void addEmploye(Employee employee) {
+        this.employees.add(employee);
+    }
+
+    @Override
+    public String toString() {
+        return "Meeting{" +
+                "meetingId=" + meetingId +
+                ", subject='" + subject + '\'' +
+                ", meetingDate=" + meetingDate +
+                '}';
     }
 }

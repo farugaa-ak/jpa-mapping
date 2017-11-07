@@ -1,4 +1,4 @@
-package com.example.hibernatejpa.model;
+package com.example.hibernatejpa.model.manytomany;
 
 
 import javax.persistence.CascadeType;
@@ -22,10 +22,12 @@ public class Employee {
 
     private String lastname;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
-    @JoinTable(name="employee_meeting",
-            joinColumns={@JoinColumn(name="employeeId")},
-            inverseJoinColumns={@JoinColumn(name="meetingId")})
+    @ManyToMany
+    @JoinTable(
+            name = "EMPLOYEE_MEETING",
+            joinColumns = {@JoinColumn(name = "EMPLOYEE_ID")},
+            inverseJoinColumns = {@JoinColumn(name = "MEETING_ID")}
+    )
     private Set<Meeting> meetings = new HashSet<Meeting>();
 
     public Employee() {
@@ -66,5 +68,20 @@ public class Employee {
 
     public void setMeetings(Set<Meeting> meetings) {
         this.meetings = meetings;
+    }
+
+    public void addMeeting(Meeting meeting){
+        this.meetings.add(meeting);
+        meeting.addEmploye(this);
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeId=" + employeeId +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", meetings=" + meetings +
+                '}';
     }
 }

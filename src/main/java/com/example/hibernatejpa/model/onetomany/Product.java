@@ -1,4 +1,4 @@
-package com.example.hibernatejpa.model;
+package com.example.hibernatejpa.model.onetomany;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -9,17 +9,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
-//@Table(name="products")
+@Table(name = "products")
 public class Product {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    @Column(name="product_name")
+    @Column(name = "product_name")
     private String name;
 
     @ManyToOne

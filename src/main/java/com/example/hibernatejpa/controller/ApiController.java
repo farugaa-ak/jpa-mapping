@@ -1,6 +1,6 @@
 package com.example.hibernatejpa.controller;
 
-import com.example.hibernatejpa.model.ShoppingCart;
+import com.example.hibernatejpa.model.onetomany.ShoppingCart;
 import com.example.hibernatejpa.repository.ShoppingCartRepository;
 import com.example.hibernatejpa.service.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +12,14 @@ import java.util.Collection;
 @RestController
 public class ApiController {
 
-    @Autowired
-    ShoppingCartRepository shoppingCartRepository;
+    private final ShoppingCartRepository shoppingCartRepository;
+    private final ShopService shopService;
 
     @Autowired
-    ShopService shopService;
+    public ApiController(ShoppingCartRepository shoppingCartRepository, ShopService shopService) {
+        this.shoppingCartRepository = shoppingCartRepository;
+        this.shopService = shopService;
+    }
 
     @GetMapping("/api/shoppingcarts")
     Collection<ShoppingCart> getAllShoppingCarts() {

@@ -1,6 +1,6 @@
 package com.example.hibernatejpa.repository;
 
-import com.example.hibernatejpa.model.User;
+import com.example.hibernatejpa.model.onetoone.User;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 

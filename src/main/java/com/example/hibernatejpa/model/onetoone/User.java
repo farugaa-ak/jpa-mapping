@@ -1,4 +1,4 @@
-package com.example.hibernatejpa.model;
+package com.example.hibernatejpa.model.onetoone;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
@@ -72,12 +72,14 @@ public class User {
         this.contact = contact;
     }
 
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", adress=" + adress +
+                ", contact=" + contact +
                 '}';
     }
 }

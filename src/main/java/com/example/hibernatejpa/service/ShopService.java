@@ -1,13 +1,10 @@
 package com.example.hibernatejpa.service;
 
-import com.example.hibernatejpa.HibernateJpaApplication;
 import com.example.hibernatejpa.repository.ShoppingCartRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.transaction.Transactional;
 
 @Service
 public class ShopService {
@@ -17,7 +14,7 @@ public class ShopService {
     @Autowired
     ShoppingCartRepository shoppingCartRepository;
 
-    public void logAll(){
+    public void logAll() {
         log.info("logAll");
         shoppingCartRepository.findAll().forEach(shoppingCart1 -> {
             log.info("ShoppingCart={}", shoppingCart1);
